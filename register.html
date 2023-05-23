@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        *,
+        *:before,
+        *:after {
+        box-sizing: border-box;
+        }
+        body {
+        padding: 1em;
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        color: #b9b9b9;
+        background-color: #e3e3e3;
+        }
+        h4 {
+        color: #FF6060;
+        }
+        input,
+        input[type="radio"] + label,
+        input[type="checkbox"] + label:before,
+        select option,
+        select {
+        width: 100%;
+        padding: 1em;
+        line-height: 1.4;
+        background-color: #f9f9f9;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
+        transition: all 0.35s ease-in-out;
+        }
+        input:focus {
+        outline: 0;
+        border-color: #FF4444;
+        }
+        input:focus + .input-icon i {
+        color: #FF6060;
+        }
+        input:focus + .input-icon:after {
+        border-right-color: #FF6060;
+        }
+        input[type="radio"] {
+        display: none;
+        }
+        input[type="radio"] + label,
+        select {
+        width: 50%;
+        text-align: center;
+        float: left;
+        border-radius: 0;
+        }
+        input[type="radio"] + label:first-of-type {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        }
+        input[type="radio"] + label:last-of-type {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        }
+        input[type="radio"] + label i {
+        padding-right: 0.4em;
+        }
+        input[type="radio"]:checked + label,
+        input:checked + label:before,
+        select:focus,
+        select:active {
+        background-color: #FF6060;
+        color: #fff;
+        border-color: #FF4444;
+        }
+        input[type="checkbox"] {
+        display: none;
+        }
+        input[type="checkbox"] + label {
+        position: relative;
+        display: block;
+        padding-left: 1.6em;
+        }
+        input[type="checkbox"] + label:before {
+        position: absolute;
+        top: 0.2em;
+        left: 0;
+        display: block;
+        width: 1em;
+        height: 1em;
+        padding: 0;
+        content: "";
+        }
+        input[type="checkbox"] + label:after {
+        position: absolute;
+        top: 0.15em;
+        left: 0.15em;
+        font-size: 0.8em;
+        color: #fff;
+        opacity: 0;
+        font-family: FontAwesome;
+        content: "\f00c";
+        }
+        input:checked + label:after {
+        opacity: 1;
+        }
+        select {
+        height: 3.4em;
+        line-height: 2;
+        }
+        select:first-of-type {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        }
+        select:last-of-type {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        }
+        select:focus,
+        select:active {
+        outline: 0;
+        }
+        select option {
+        background-color: #FF6060;
+        color: #fff;
+        }
+        .input-group {
+        margin-bottom: 1em;
+        zoom: 1;
+        }
+        .input-group:before,
+        .input-group:after {
+        content: "";
+        display: table;
+        }
+        .input-group:after {
+        clear: both;
+        }
+        .input-group-icon {
+        position: relative;
+        }
+        .input-group-icon input {
+        padding-left: 4.4em;
+        }
+        .input-group-icon .input-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3.4em;
+        height: 3.4em;
+        line-height: 3.4em;
+        text-align: center;
+        pointer-events: none;
+        }
+        .input-group-icon .input-icon:after {
+        position: absolute;
+        top: 0.6em;
+        bottom: 0.6em;
+        left: 3.4em;
+        display: block;
+        border-right: 1px solid #e5e5e5;
+        content: "";
+        transition: all 0.35s ease-in-out;
+        }
+        .input-group-icon .input-icon i {
+        transition: all 0.35s ease-in-out;
+        }
+        .container {
+        max-width: 38em;
+        padding: 1em 3em 2em 3em;
+        margin: 0em auto;
+        background-color: #fff;
+        border-radius: 4.2px;
+        box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+        }
+        .row {
+        zoom: 1;
+        }
+        .row:before,
+        .row:after {
+        content: "";
+        display: table;
+        }
+        .row:after {
+        clear: both;
+        }
+        .col-half {
+        padding-right: 10px;
+        float: left;
+        width: 50%;
+        }
+        .col-half:last-of-type {
+        padding-right: 0;
+        }
+        .col-third {
+        padding-right: 10px;
+        float: left;
+        width: 33.33333333%;
+        }
+        .col-third:last-of-type {
+        padding-right: 0;
+        }
+        @media only screen and (max-width: 540px) {
+        .col-half {
+            width: 100%;
+            padding-right: 0;
+        }
+        }
+
+        .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+            background-color: #FF6060;
+            border-color: #FF4444;
+        }
+        .btn-primary:disabled {
+            background-color: #f18989;
+            border-color: #f18989;
+        }
+
+        #logo {
+          height: 48px;
+          margin: 0 auto;
+        }
+    </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/23f948d599.js" crossorigin="anonymous"></script>
+    <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <script>
+        /// <reference path="../node_modules/@workadventure/iframe-api-typings/iframe_api.d.ts" />
+
+        window.onload = () => {
+            let fullname = document.getElementById("fullname");
+            let email = document.getElementById('email')
+            let city = document.getElementById('city')
+            let phone = document.getElementById('phone')
+            let birthdate = document.getElementById('birthdate')
+            let registerBtn = document.getElementById('registerBtn')
+
+            fullname.addEventListener("change", tryToEnableRegister)
+            email.addEventListener("change", tryToEnableRegister)
+            birthdate.addEventListener("change", tryToEnableRegister)
+        }
+
+        function tryToEnableRegister() {
+            if (fullname.value && email.value && birthdate.value) {
+                registerBtn.disabled = false
+            }
+        }
+
+        function register() {
+            WA.player.state.saveVariable("registered", true, {
+                public: true, // because we might need it
+                persist: true, // to keep the info after refresh / leave
+                ttl: 48 * 3600, // 2 days
+                scope: "world", // if other maps for the same fest
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row mt-4">
+          <img id="logo" src="./FestAdventure_Logo.png" alt="FestAdventure Logo">
+        </div>
+        <form>
+          <div class="row mt-5">
+            <h4>Tell us a little bit about you!</h4>
+            <div class="input-group input-group-icon">
+              <input type="text" placeholder="Full name" id="fullname" required/>
+              <div class="input-icon"><i class="fa fa-user"></i></div>
+            </div>
+            <div class="input-group input-group-icon">
+              <input type="email" placeholder="Email address" id="email" required/>
+              <div class="input-icon"><i class="fa fa-envelope"></i></div>
+            </div>
+            <div class="input-group input-group-icon">
+                <input type="city" placeholder="City (optional)" id="city"/>
+                <div class="input-icon"><i class="fa fa-globe"></i></div>
+              </div>
+            <div class="input-group input-group-icon">
+              <input type="telephone" placeholder="Telephone (optional)" id="phone"/>
+              <div class="input-icon"><i class="fa fa-phone"></i></div>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-half">
+              <h4>Date of birth</h4>
+              <div class="input-group">
+                <input type="date" id="birthdate" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="registerBtn" disabled onclick="register()">OK, let me in!</button>
+          </div>
+        </form>
+      </div>
+</body>
+</html>

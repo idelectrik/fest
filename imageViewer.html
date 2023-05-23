@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Image viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.0/viewer.min.css" integrity="sha512-/Dl+xD18YhUlpwBtaDh8zBWfJgbkRSCJpFKcI8+3WkX96/C635QGJ7d2/Ju7Ul4ZfJZnS22QWOhAfhU2/ZdmYQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.0/viewer.min.js" integrity="sha512-GT1saHeCyf4p1Vi28cxW92WPl+H/cs4Q+gB8T5rThKJopCrSus/l5VA3in6DouR6kfMLmoaiDVQ+zdBQd9xqEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="floormap.png" alt="Picture">
+
+    <script>
+        // More info: https://github.com/fengyuanchen/viewerjs
+        window.addEventListener('DOMContentLoaded', function () {
+            const image = document.getElementById("image");
+            const viewer = new Viewer(image, {
+                inline: true,
+                toolbar: false,
+                zoomRatio: 0.5,
+                viewed: () => {
+                    viewer.zoomTo(1);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
